@@ -19,8 +19,6 @@ export default function MainPage() {
   const dispatch = useDispatch();
 
   const handleClick = async (subRed) => {
-    // console.log(subRed);
-
     const data = await getSubredditPosts(subRed);
     await data.map((subPost) => {
       dispatch(showSubReddit(subPost));
@@ -29,15 +27,6 @@ export default function MainPage() {
     });
   };
   console.log(subReddit);
-
-  // const handleClick = () => {
-  //   const data = getSubredditPosts();
-  //   console.log(data);
-
-  //   data.map((data) => {
-  //     dispatch(showSubReddit(data));
-  //   });
-  // };
 
   return (
     <div className={styles.homePageContainer}>
