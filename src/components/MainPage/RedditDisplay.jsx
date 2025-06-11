@@ -7,8 +7,9 @@ export default function RedditDisplay(props) {
   const redditContent = useSelector(selectContent);
   console.log(redditContent);
   const dispatch = useDispatch();
+
   async function handleClick(text) {
-    console.log(text);
+    // console.log(text);
 
     dispatch(showFurtherInfo(text));
   }

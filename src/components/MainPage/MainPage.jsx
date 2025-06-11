@@ -23,7 +23,7 @@ export default function MainPage() {
     await data.map((subPost) => {
       dispatch(showSubReddit(subPost));
 
-      console.log(subPost);
+      // console.log(subPost);
     });
   };
   console.log(subReddit);

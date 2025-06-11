@@ -14,7 +14,7 @@ const redditSlice = createSlice({
       state.subReddit.push(action.payload);
     },
     showFurtherInfo: (state, action) => {
-      state.redditContent = action.payload;
+      state.redditContent = action.payload.selftext;
     },
   },
 });
