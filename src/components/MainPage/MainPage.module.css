@@ -1,0 +1,22 @@
+.displayCard {
+  border: 1px solid white;
+  padding: 2.5px;
+  border-radius: 2em;
+  margin: 20px 40px;
+}
+.homePageContainer {
+  display: flex;
+}
+.homePageContainer h1 {
+  display: flex;
+}
+.redditDisplay {
+  flex-direction: column;
+}
+.SubRedLink:hover {
+  background-color: yellow;
+  color: black;
+  box-shadow: black 2px;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 2.5px black;
+}
