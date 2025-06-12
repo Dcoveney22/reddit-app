@@ -1,27 +1,38 @@
 import React from "react";
 import styles from "./MainPage.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { selectContent, showFurtherInfo } from "./redditSlice";
+import {
+  selectContent,
+  showFurtherInfo,
+  selectedID,
+  setSelectedID,
+} from "./redditSlice";
 
 export default function RedditDisplay(props) {
   const redditContent = useSelector(selectContent);
-  console.log(redditContent);
+  const selectedId = useSelector(selectedID);
+
+  // console.log(redditContent);
+  console.log(selectedId);
+
   const dispatch = useDispatch();
 
-  async function handleClick(text) {
-    // console.log(text);
-
+  async function handleClick(text, id) {
+    // const displayContent = props.id === selectedId ? redditContent : "";
+    // console.log(props.id);
+    dispatch(setSelectedID(id));
     dispatch(showFurtherInfo(text));
   }
-
   return (
     <div
-      onClick={() => handleClick(props.text)}
+      onClick={() => handleClick(props.text, props.id)}
       className={styles.redditDisplay}
     >
-      <p>Post Content: "{props.content}"</p>
-      <p>{redditContent}</p>
-      <p>User: {props.user}</p>
+      <p>POST TITLE: "{props.content}"</p>
+
+      {props.id === selectedId && <div>POST CONTENT: {redditContent}</div>}
+
+      <p>USER: u/{props.user}</p>
     </div>
   );
 }

@@ -12,6 +12,10 @@
 }
 .redditDisplay {
   flex-direction: column;
+  border: black 1px solid;
+  margin: 10px;
+  border-radius: 2em;
+  background-color: blueviolet;
 }
 .SubRedLink:hover {
   background-color: yellow;

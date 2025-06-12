@@ -1,6 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSub, showSubReddit, selectUser } from "./redditSlice";
+import {
+  selectSub,
+  showSubReddit,
+  selectUser,
+  showSubUser,
+} from "./redditSlice";
 import hardData from "../../../Data/hardData";
 import RedditDisplay from "./RedditDisplay";
 import SubRedLink from "../ListBar/SubRedList";
@@ -9,22 +14,26 @@ import { getSubredditPosts } from "../getData/getData";
 const mainData = hardData;
 
 // const data = await getData();
-
 export default function MainPage() {
   const subReddit = useSelector(selectSub);
-  const user = useSelector(selectUser);
-
-  // console.log(subReddit);
+  // const subUser = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
   const handleClick = async (subRed) => {
     const data = await getSubredditPosts(subRed);
-    await data.map((subPost) => {
-      dispatch(showSubReddit(subPost));
+    console.log(data);
+    const subPostArray = [];
 
-      // console.log(subPost);
+    await data.map((subPost) => {
+      subPostArray.push(subPost);
     });
+
+    dispatch(showSubReddit(subPostArray));
+    console.log(subPostArray);
+    // console.log(subPost.title);
+    // console.log(subPost);
+    // });
   };
   console.log(subReddit);
 
@@ -37,6 +46,7 @@ export default function MainPage() {
               onClick={() => handleClick(sub.subreddit)}
               key={sub.key}
               name={sub.subreddit}
+              id={sub.id}
             />
           ))}
         </div>
@@ -48,6 +58,7 @@ export default function MainPage() {
               content={sub.title}
               user={sub.author}
               text={sub.selftext}
+              id={sub.id}
             />
           </div>
         ))}
