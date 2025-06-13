@@ -51,7 +51,7 @@ export default function MainPage() {
           ))}
         </div>
       </div>
-      <div>
+      <div className={styles.openContainer}>
         {subReddit.map((sub) => (
           <div>
             <RedditDisplay
@@ -59,6 +59,9 @@ export default function MainPage() {
               user={sub.author}
               text={sub.selftext}
               id={sub.id}
+              subReddit={sub.subreddit}
+              seconds={sub.created_utc}
+              url={sub.url_overridden_by_dest}
             />
           </div>
         ))}

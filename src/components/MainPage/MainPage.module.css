@@ -1,26 +1,86 @@
 .displayCard {
-  border: 1px solid white;
-  padding: 2.5px;
-  border-radius: 2em;
+  border-right: black 1px solid;
+  /* display: flex; */
+  float: left;
+  padding: 5px;
+  padding-right: 30px;
+  /* border-radius: 2em; */
   margin: 20px 40px;
 }
 .homePageContainer {
   display: flex;
+  width: 100%;
 }
 .homePageContainer h1 {
-  display: flex;
+  display: block;
 }
 .redditDisplay {
+  /* flex-direction: column; */
+  width: 100%;
+  /* border: black 1px solid; */
+  margin: 10px;
+
+  border-radius: 1em;
+  background-color: none;
+  color: black;
+  padding: 10px;
+}
+.redditDisplay h5 {
+  text-align: left;
+}
+.redditDisplay h3 {
+  font-style: italic;
+}
+.redditDisplay:hover {
   flex-direction: column;
-  border: black 1px solid;
+  /* border: black 1px solid; */
   margin: 10px;
   border-radius: 2em;
-  background-color: blueviolet;
+  background-color: lightgray;
+  cursor: pointer;
 }
-.SubRedLink:hover {
-  background-color: yellow;
-  color: black;
-  box-shadow: black 2px;
+.displayContainer {
+  border-top: 0.5px lightgray solid;
+  /* display: flex; */
+  width: 100%;
+  /* border-bottom: 0.5px lightgray solid; */
+}
+.openContainer {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.leftLink {
+  /* display: flex; */
+  flex-direction: column;
+}
+.flexBoxPostInfo {
+  display: flex;
+  padding-left: 20px;
+}
+.timestamp {
+  margin-left: 10px;
+  font-size: 0.5em;
+  align-self: center;
+}
+.postButtonContainer {
+  width: 100%;
+  justify-content: right;
+  display: flex;
+}
+.postButton {
+  text-align: right;
+  border: 0.25px lightgray solid;
+  border-radius: 0.5em;
+  padding: 3px;
+  font-size: 10px;
+}
+.postButton:hover {
+  background-color: rgb(235, 72, 23);
+  color: white;
+  box-shadow: black 1px;
   cursor: pointer;
   box-shadow: 2.5px 2.5px 2.5px black;
 }

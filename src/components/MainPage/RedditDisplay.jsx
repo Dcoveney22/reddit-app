@@ -11,28 +11,52 @@ import {
 export default function RedditDisplay(props) {
   const redditContent = useSelector(selectContent);
   const selectedId = useSelector(selectedID);
+  const secondsAgo = props.seconds;
+
+  let timeStatement = new Date(secondsAgo * 1000).toLocaleDateString("uk");
 
   // console.log(redditContent);
   console.log(selectedId);
 
   const dispatch = useDispatch();
 
-  async function handleClick(text, id) {
-    // const displayContent = props.id === selectedId ? redditContent : "";
-    // console.log(props.id);
-    dispatch(setSelectedID(id));
-    dispatch(showFurtherInfo(text));
+  async function handleClick(text, id, url) {
+    console.log(url);
+
+    if (url === undefined && text === "") {
+      text = "No Preview Available";
+    } else if (text === "") {
+      text = url;
+    }
+    if (props.id === selectedId) {
+      dispatch(setSelectedID(""));
+      dispatch(showFurtherInfo(""));
+    } else {
+      dispatch(setSelectedID(id));
+      dispatch(showFurtherInfo(text));
+    }
   }
+
   return (
-    <div
-      onClick={() => handleClick(props.text, props.id)}
-      className={styles.redditDisplay}
-    >
-      <p>POST TITLE: "{props.content}"</p>
+    <div className={styles.displayContainer}>
+      <div
+        onClick={() => handleClick(props.text, props.id, props.url)}
+        className={styles.redditDisplay}
+      >
+        <span className={styles.flexBoxPostInfo}>
+          <h5>r/{props.subReddit}</h5>
+          <p className={styles.timestamp}>posted on: {timeStatement}</p>
+        </span>
 
-      {props.id === selectedId && <div>POST CONTENT: {redditContent}</div>}
+        <h3>{props.content}</h3>
 
-      <p>USER: u/{props.user}</p>
+        {props.id === selectedId && <div>{redditContent}</div>}
+
+        <p>u/{props.user}</p>
+        <div className={styles.postButtonContainer}>
+          <div className={styles.postButton}>FULL PREVIEW</div>
+        </div>
+      </div>
     </div>
   );
 }

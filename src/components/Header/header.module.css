@@ -1,0 +1,27 @@
+.logoheader {
+  text-align: center;
+  display: flex;
+  width: 75%;
+  padding-top: 2em;
+}
+.logobox {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.logocontainer {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: black 1px solid;
+}
+.subheader {
+  display: block;
+}
+.subheader p {
+  color: black;
+  font-style: italic;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
