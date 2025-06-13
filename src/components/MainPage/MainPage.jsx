@@ -13,8 +13,20 @@ import styles from "./MainPage.module.css";
 import { getSubredditPosts } from "../getData/getData";
 const mainData = hardData;
 
+const homeLoad = async () => {
+  const homeLoad = await getSubredditPosts("r/AskReddit");
+  const startingArray = [];
+
+  await homeLoad.map((home) => {
+    startingArray.push(home);
+  });
+
+  dispatch(showSubReddit(startingArray));
+};
+
 // const data = await getData();
 export default function MainPage() {
+  homeLoad();
   const subReddit = useSelector(selectSub);
   // const subUser = useSelector(selectUser);
 
