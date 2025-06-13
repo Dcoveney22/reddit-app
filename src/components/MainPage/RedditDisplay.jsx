@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MainPage.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   selectContent,
   showFurtherInfo,
@@ -54,7 +55,23 @@ export default function RedditDisplay(props) {
 
         <p>u/{props.user}</p>
         <div className={styles.postButtonContainer}>
-          <div className={styles.postButton}>FULL PREVIEW</div>
+          <div className={styles.postButton}>
+            <Link
+              to={`/home/posts/${props.id}`}
+              state={{
+                content: props.text,
+                id: props.id,
+                user: props.user,
+                title: props.content,
+                seconds: props.seconds,
+                subReddit: props.subReddit,
+                upVoteQty: props.upVoteQty,
+                permalink: props.permalink,
+              }}
+            >
+              FULL PREVIEW
+            </Link>
+          </div>
         </div>
       </div>
     </div>

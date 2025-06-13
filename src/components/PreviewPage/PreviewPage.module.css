@@ -1,0 +1,68 @@
+.fullPreview {
+  color: black;
+}
+
+.headerPreview {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.bodyPreview {
+  margin-left: 250px;
+  margin-right: 250px;
+  border-bottom: solid 0.5px lightgray;
+  padding-bottom: 100px;
+}
+.postButtonContainer {
+  width: 100%;
+  justify-content: right;
+  display: flex;
+}
+.commentButton {
+  width: max-content;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  box-shadow: 2.5px 2.5px 2.5px black;
+  border-radius: 1.5em;
+  text-align: right;
+}
+.commentButton:hover {
+  width: max-content;
+  background-color: rgb(235, 72, 23);
+  cursor: pointer;
+
+  box-shadow: 2.5px 2.5px 2.5px black;
+  border-radius: 1.5em;
+  text-align: right;
+}
+.commentsBox {
+  display: block;
+  border: solid 1px lightgray;
+  margin: 20px;
+  border-radius: 1.5em;
+  width: 1000px;
+}
+.commentsBox:hover {
+  background-color: lightgray;
+}
+
+.userDiv {
+  display: flex;
+  margin-left: 50px;
+}
+
+.commentsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.borderBox {
+  border-left: solid lightgray 0.5px;
+  border-right: solid lightgray 0.5px;
+}

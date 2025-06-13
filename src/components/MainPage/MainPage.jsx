@@ -62,6 +62,8 @@ export default function MainPage() {
               subReddit={sub.subreddit}
               seconds={sub.created_utc}
               url={sub.url_overridden_by_dest}
+              upVoteQty={sub.ups}
+              permalink={sub.permalink}
             />
           </div>
         ))}
